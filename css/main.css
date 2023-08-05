@@ -30,17 +30,17 @@ main {
     align-items: center;
 }
 
-#dealer {
+#dealercard {
     align-self: center;
-    height: 35vmin;
-    width: 35vmin;
+    height: 20vmin;
+    width: 15vmin;
     margin-bottom: 20px;
 }
 
-#player {
+#playercard {
     align-self: center;
-    height: 35vmin;
-    width: 35vmin;
+    height: 20vmin;
+    width: 15vmin;
 }
 
 #chips {
@@ -53,10 +53,19 @@ main {
     align-items: center;
 
 }
-#chips>div {
+#betting>button {
     border-radius: 50%;
     width: 60px;
     height: 60px;
     border: 1px solid black;
     margin: 10px;
+}
+
+#scores {
+    display: grid;
+    grid-template-columns: 15vmin 15vmin 15vmin 15vmin;
+    grid-column-gap: 10vmin;
+    align-items: center;
+    justify-content: center;
+  }
 }

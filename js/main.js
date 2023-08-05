@@ -7,7 +7,7 @@ const originalDeck = buildOriginalDeck();
 
 
 /*----- app's state (variables) -----*/
-let shuffledDeck;
+let table, shuffledDeck, betAmt, balance
 
 /*----- cached element references -----*/
 const shuffledContainer = document.getElementById('shuffled-deck-container');
@@ -16,6 +16,12 @@ const shuffledContainer = document.getElementById('shuffled-deck-container');
 document.querySelector('button').addEventListener('click', renderNewShuffledDeck);
 
 /*----- functions -----*/
+init()
+
+function init() {
+    render
+}
+
 function getNewShuffledDeck() {
   // Create a copy of the originalDeck (leave originalDeck untouched!)
   const tempDeck = [...originalDeck];
