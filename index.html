@@ -4,29 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CasinoWar</title>
-    <link rel="stylesheet" href="'css/main.css">
     <link href="css/card-library/css/cardstarter.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
 <body>
     <main id="table">
         <h1>CasinoWAR</h1>
-        <section id="dealer">
-            <div id="deck"></div>
-            <div id="dealerscard"></div>
-        </section>
-        <section id="player">
-            <div id="playerscard"></div>
-            <div id="scores">
-                <div>Player Bet</div>
-                <div>Player Balance</div>
+        <section id="tactiles">
+            <div id="dealt-cards">
+                <h1>Dealer</h1>
+                <div id="dealer"></div>
+                <h1>Player</h1>
+                <div id="player"></div>
+            </div>
+            <div id="chips">
+                <div id="chip-25"></div>
+                <div id="chip-50"></div>
+                <div id="chip-100"></div>
             </div>
         </section>
-        <section id="chips">
-            <div id="chip-25">25</div>
-            <div id="chip-50">50</div>
-            <div id="chip-100">100</div>
+        <section id="scores">
+            <div id="balance"></div>
+            <div id="bet-amt"></div>
         </section>
+        <button>Clear Game</button>
     </main>
     
 </body>

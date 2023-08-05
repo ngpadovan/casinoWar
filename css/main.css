@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+  }
+
+h1  {
+    align-self: center;
+}
+
+main {
+    font-family: Helvetica;
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    size: 100vmin;
+    border-radius: 90%;
+    justify-content: space-around;
+}
+
+#tactiles {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+}
+
+#dealt-cards {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+}
+
+#dealer {
+    align-self: center;
+    height: 35vmin;
+    width: 35vmin;
+    margin-bottom: 20px;
+}
+
+#player {
+    align-self: center;
+    height: 35vmin;
+    width: 35vmin;
+}
+
+#chips {
+    display: grid;
+    grid-template-columns: repeat(3, 10vmin);
+    grid-column-gap: 30px;
+    size: 100vmin;
+    align-self: center;
+    margin-bottom: 50px;
+    align-items: center;
+
+}
+#chips>div {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    margin: 10px;
+}
