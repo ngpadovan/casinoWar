@@ -5,23 +5,88 @@ const originalDeck = buildOriginalDeck();
 
 
 /*----- app's state (variables) -----*/
-let playercard, dealercard, bet, balance, result
+let playerCard, dealerCard, bet, balance, result
 
 /*----- cached element references -----*/
-
+const balanceEl = document.getElementById('balance');
+const betEl = document.getElementById('bet-amt');
 
 /*----- event listeners -----*/
-
+document.querySelector('main').addEventListener('click', handleClick)
 
 /*----- functions -----*/
-init()
+init();
 
 function init() {
-    let balance = 0;
-    let bet = 0;
-    let playerCard = null;
-    let dealerCard = null;
+    balance = 0;
+    bet = 0;
+    playerCard = null;
+    dealerCard = null;
+    result = null;
+    render()
 }
+
+function render() {
+    renderResult();
+    renderCards();
+    renderBalance();
+    renderBet();
+}
+
+function renderBalance() {
+    balanceEl.textContent = balance;
+}
+
+function renderBet() {
+    betEl.textContent = bet;
+}
+
+function handleClick(evt) {
+    if (evt.target.tagName !== 'BUTTON') {
+        return;
+    } else if (evt.target.className === 'chip') {
+        handleWager(evt);
+    } else if (evt.target.id === 'bet') {
+        handleBet();
+    }
+}
+
+function handleWager(evt) {
+    if (evt.target.id === "chip-25") {
+        bet += 25;
+    }
+    else if (evt.target.id === "chip-50") {
+        bet += 50;
+    }
+    else if (evt.target.id === "chip-100") {
+        bet += 100;
+    }
+    renderBet()
+
+}
+
+function handleBet() {
+    playerCard = getRandomCard();
+    dealerCard = getRandomCard();
+    renderCards();
+}
+
+function getRandomCard() {
+    debugger;
+    const randomIdx = Math.floor(Math.random() * originalDeck.length);
+    const randomCard = originalDeck[randomIdx];
+        console.log(randomCard); 
+    originalDeck.splice(randomIdx, 1);
+    return randomCard;
+}
+function renderResult() {
+
+}
+
+function renderCards() {
+
+}
+
 
 function buildOriginalDeck() {
     const deck = [];
