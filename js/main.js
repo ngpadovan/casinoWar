@@ -10,6 +10,7 @@ let playerCard, dealerCard, bet, balance, result
 /*----- cached element references -----*/
 const balanceEl = document.getElementById('balance');
 const betEl = document.getElementById('bet-amt');
+const messageEl = document.getElementById('result-message')
 
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleClick)
@@ -23,6 +24,7 @@ function init() {
     playerCard = null;
     dealerCard = null;
     result = null;
+    messageEl.innerText = 'Place Your Bet'
     render()
 }
 
@@ -68,11 +70,26 @@ function handleWager(evt) {
 function handleBet() {
     playerCard = getRandomCard();
     dealerCard = getRandomCard();
+
+    const currentBalance = parseInt(balanceEl.textContent);
+
+    if (dealerCard.value > playerCard.value) {
+        result = 'dealer';
+        balance = currentBalance - bet;
+    } else if (playerCard.value > dealerCard.value) {
+        result = 'player';
+        balance = currentBalance + bet;
+    } else if (playerCard.value === dealerCard.value) {
+        result = 'war';
+        handleBet();
+    }
+
+    renderResult();
+    renderBalance(balance);
     renderCards();
 }
 
 function getRandomCard() {
-    debugger;
     const randomIdx = Math.floor(Math.random() * originalDeck.length);
     const randomCard = originalDeck[randomIdx];
         console.log(randomCard); 
@@ -80,6 +97,13 @@ function getRandomCard() {
     return randomCard;
 }
 function renderResult() {
+    if (result === 'dealer') {
+        messageEl.innerText = `Dealer Wins, player -${bet}`;
+    } else if (result === 'player') {
+        messageEl.innerText = `Player Wins +${bet}`;
+    } else if (result === 'war') {
+        messageEl.innerText = 'WAR! New Cards Dealt';
+    }
 
 }
 
