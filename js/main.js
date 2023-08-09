@@ -66,7 +66,7 @@ function handleWager(evt) {
         bet += 100;
     }
     renderBet()
-
+    resetCards();
 }
 
 function handleBet() {
@@ -124,6 +124,17 @@ function renderCards() {
 
 }
 
+function resetCards() {
+    if (dealerCard) {
+        originalDeck.push(dealerCard);
+    }
+    if (playerCard) {
+        originalDeck.push(playerCard);
+    }
+    renderResult()
+    dlrCardEl.classList.remove(dealerCard.face);
+    plrCardEl.classList.remove(playerCard.face);
+}
 
 function buildOriginalDeck() {
     const deck = [];
