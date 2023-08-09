@@ -11,6 +11,8 @@ let playerCard, dealerCard, bet, balance, result
 const balanceEl = document.getElementById('balance');
 const betEl = document.getElementById('bet-amt');
 const messageEl = document.getElementById('result-message')
+const dlrCardEl = document.getElementById('dealercard')
+const plrCardEl = document.getElementById('playercard')
 
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleClick)
@@ -71,22 +73,25 @@ function handleBet() {
     playerCard = getRandomCard();
     dealerCard = getRandomCard();
 
-    const currentBalance = parseInt(balanceEl.textContent);
+    const liveBalance = parseInt(balanceEl.textContent);
 
     if (dealerCard.value > playerCard.value) {
         result = 'dealer';
-        balance = currentBalance - bet;
+        balance = liveBalance - bet;
+        
     } else if (playerCard.value > dealerCard.value) {
         result = 'player';
-        balance = currentBalance + bet;
+        balance = liveBalance + bet;
+        
     } else if (playerCard.value === dealerCard.value) {
         result = 'war';
         handleBet();
     }
-
+    renderCards();
     renderResult();
     renderBalance(balance);
-    renderCards();
+    bet = 0;
+    renderBet();
 }
 
 function getRandomCard() {
@@ -108,6 +113,14 @@ function renderResult() {
 }
 
 function renderCards() {
+    if (dealerCard) {
+        dlrCardEl.src = `images/${dealerCard.face}.png`;
+        dlrCardEl.classList.add(`card`, dealerCard.face);
+    }
+     if (playerCard) {
+        plrCardEl.src = `images/${playerCard.face}.png`;
+        plrCardEl.classList.add(`card`, playerCard.face);
+    }
 
 }
 
