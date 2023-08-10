@@ -4,6 +4,7 @@
 
 h1  {
     align-self: center;
+    margin-bottom: -4px;
 }
 
 main {
@@ -34,7 +35,7 @@ main {
     align-self: center;
     height: 20vmin;
     width: 15vmin;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #playercard {
@@ -51,8 +52,8 @@ main {
     align-self: center;
     margin-bottom: 50px;
     align-items: center;
-
 }
+
 #betting>button {
     border-radius: 50%;
     width: 60px;
@@ -64,7 +65,7 @@ main {
 #scores {
     display: grid;
     grid-template-columns: 15vmin 15vmin 15vmin 15vmin;
-    grid-column-gap: 10vmin;
+    grid-column-gap: 7 vmin;
     align-items: center;
     justify-content: center;
   }

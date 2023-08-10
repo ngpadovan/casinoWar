@@ -16,6 +16,7 @@ const plrCardEl = document.getElementById('playercard')
 
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleClick)
+document.getElementById('clear').addEventListener('click', clearGame)
 
 /*----- functions -----*/
 init();
@@ -28,6 +29,11 @@ function init() {
     result = null;
     messageEl.innerText = 'Place Your Bet'
     render()
+}
+
+function clearGame() {
+    resetCards();
+    init();
 }
 
 function render() {
@@ -97,10 +103,10 @@ function handleBet() {
 function getRandomCard() {
     const randomIdx = Math.floor(Math.random() * originalDeck.length);
     const randomCard = originalDeck[randomIdx];
-        console.log(randomCard); 
     originalDeck.splice(randomIdx, 1);
     return randomCard;
 }
+
 function renderResult() {
     if (result === 'dealer') {
         messageEl.innerText = `Dealer Wins, player -${bet}`;
@@ -113,7 +119,7 @@ function renderResult() {
             bet = currentBet;
             resetCards()
             handleBet();
-        }, 1500);
+        }, 2000);
     }
 
 }
