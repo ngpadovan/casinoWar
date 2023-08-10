@@ -111,9 +111,9 @@ function renderResult() {
         const currentBet = bet;
         setTimeout(function() {
             bet = currentBet;
-            handleBet()
+            resetCards()
+            handleBet();
         }, 1500);
-
     }
 
 }
@@ -133,13 +133,12 @@ function renderCards() {
 function resetCards() {
     if (dealerCard) {
         originalDeck.push(dealerCard);
+        dlrCardEl.classList.remove(dealerCard.face);
     }
     if (playerCard) {
         originalDeck.push(playerCard);
+        plrCardEl.classList.remove(playerCard.face);
     }
-    renderResult()
-    dlrCardEl.classList.remove(dealerCard.face);
-    plrCardEl.classList.remove(playerCard.face);
 }
 
 function buildOriginalDeck() {
