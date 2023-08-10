@@ -50,12 +50,13 @@ function handleClick(evt) {
         return;
     } else if (evt.target.className === 'chip') {
         handleWager(evt);
-    } else if (evt.target.id === 'bet') {
+    } else if (evt.target.id === 'bet' && bet > 0) {
         handleBet();
     }
 }
 
 function handleWager(evt) {
+    
     if (evt.target.id === "chip-25") {
         bet += 25;
     }
@@ -85,7 +86,6 @@ function handleBet() {
         
     } else if (playerCard.value === dealerCard.value) {
         result = 'war';
-        handleBet();
     }
     renderCards();
     renderResult();
@@ -107,7 +107,13 @@ function renderResult() {
     } else if (result === 'player') {
         messageEl.innerText = `Player Wins +${bet}`;
     } else if (result === 'war') {
-        messageEl.innerText = 'WAR! New Cards Dealt';
+        messageEl.innerText = 'WAR! Dealing New Cards';
+        const currentBet = bet;
+        setTimeout(function() {
+            bet = currentBet;
+            handleBet()
+        }, 1500);
+
     }
 
 }
