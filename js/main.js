@@ -127,11 +127,11 @@ function renderResult() {
 function renderCards() {
     if (dealerCard) {
         dlrCardEl.src = `images/${dealerCard.face}.png`;
-        dlrCardEl.classList.add(`card`, dealerCard.face);
+        dlrCardEl.classList.add(dealerCard.face);
     }
      if (playerCard) {
         plrCardEl.src = `images/${playerCard.face}.png`;
-        plrCardEl.classList.add(`card`, playerCard.face);
+        plrCardEl.classList.add(playerCard.face);
     }
 
 }
